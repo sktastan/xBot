@@ -1,5 +1,7 @@
 @ECHO OFF
 ECHO Setup xbot
+git clone https://github.com/sktastan/xbot.git
+cd xbot
 uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 uv pip install huggingface_hub transformers faster_whisper piper-tts sentence_transformers chromadb accelerate bs4 aiohttp asyncio brotli flask 
 uv run %~dp0app\src\download_piper_models.py
