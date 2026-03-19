@@ -61,7 +61,7 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
     ```bash
     uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
     uv pip install transformers faster_whisper piper-tts sentence_transformers chromadb accelerate bs4 aiohttp asyncio brotli flask
-    uv run ...\app\src\download_piper_models.py
+    uv run %~dp0app\src\download_piper_models.py
     ```
     or
     setup.bat
