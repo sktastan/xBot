@@ -63,16 +63,17 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
     uv pip install huggingface_hub transformers faster_whisper piper-tts sentence_transformers chromadb accelerate bs4 aiohttp asyncio brotli flask
     uv run %~dp0app\src\download_piper_models.py
     ```
-    or
+    or one click
+
     setup.bat
 
     *(Note: You may need specific versions of `torch` depending on your CUDA version).*
 
-3.  **Model Configuration**
+4.  **Model Configuration**
     *   The system is configured to use `Qwen/Qwen3.5-0.8B` by default. On first run, it will attempt to download this from Hugging Face if not cached.
     *   **TTS Models:** Ensure you have Piper ONNX voice models located in `tts-models/tts/`.
 
-4.  **Directory Structure**
+5.  **Directory Structure**
     Ensure the following directories exist:
     *   `app/src/documents/` (Place `.txt` files here for RAG)
     *   `chroma_db/` (Created automatically for vector storage)
