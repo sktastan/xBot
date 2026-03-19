@@ -15,7 +15,6 @@ class TTS:
         # Default to joe as per previous user edit
         self.model_path = os.path.abspath("piper-voices/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx")
         # self.model_path = os.path.abspath("piper-voices/en/en_US/joe/medium/en_US-joe-medium.onnx")
-        # self.model_path = os.path.abspath("tts-models/tts/eng/ryan/en_US-ryan-medium.onnx")
         self.config_path = self.model_path + ".json"
         self.enabled = True
 
