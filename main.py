@@ -188,21 +188,21 @@ async def main():
     #   Route: Returns available TTS voices.
     # -------------------------------------------------------------------
     @server.app.route('/api/tts/voices', methods=['GET'])
-    async def get_voices():
-        voices = await ttsModel.get_voices()
-        current = await ttsModel.get_current_voice()
+    def get_voices():
+        voices = ttsModel.get_voices()
+        current = ttsModel.get_current_voice()
         return jsonify({"voices": voices, "current": current}), 200
 
     # ---------------------------------------------------------------------
     #   Route: Sets the active TTS voice.
     # -------------------------------------------------------------------
     @server.app.route('/api/tts/voice', methods=['POST'])
-    async def set_voice():
+    def set_voice():
         data = request.get_json()
         voice_name = data.get('voice')
         if not voice_name:
             return jsonify({"error": "No voice specified"}), 400
-        await ttsModel.setVoice(voice_name)
+        ttsModel.setVoice(voice_name)
         return jsonify({"status": "success", "voice": voice_name}), 200
 
     # ---------------------------------------------------------------------------------------------
