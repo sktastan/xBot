@@ -54,7 +54,7 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
 1.  **Clone the Repository**
     ```bash
     git clone https://github.com/sktastan/xbot.git
-    cd xbot10
+    cd xbot
     ```
 
 2.  **Install Python Dependencies**
