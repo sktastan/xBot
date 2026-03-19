@@ -1,0 +1,183 @@
+<!-- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XBot | Nova Prism</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" sizes="any">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Marked.js for Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Bio-Background Blobs -->
+        <div class="bio-blob blob-1"></div>
+        <div class="bio-blob blob-2"></div>
+
+        <!-- Sidebar (Bio-Glass) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <div class="logo-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h1 class="sidebar-title">xBot</h1>
+                </div>
+                <button id="close-sidebar" class="sidebar-close-btn" title="Close Navigation">
+                    <i class="fas fa-angles-left"></i>
+                </button>
+            </div>
+
+            <nav class="nav-section">
+                <button id="new-chat-btn" class="new-chat-btn">
+                    <i class="fas fa-plus"></i> New Command
+                </button>
+
+                <div class="conv-scroll-area">
+                    <p class="section-label">PREVIOUS MISSIONS</p>
+                    <div id="conversation-list" class="conversation-list">
+                        <!-- Conversations will be injected here -->
+                    </div>
+                </div>
+
+                <div class="system-status-box">
+                    <p class="section-label">SYSTEM STATUS</p>
+                    <div class="status-indicator">
+                        <div class="dot"
+                            style="background: var(--accent-nova); box-shadow: 0 0 12px var(--accent-nova);"></div>
+                        <span style="color: var(--accent-nova)">CORE STABLE</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--prism-border);">
+                <p
+                    style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.1em; margin-top: 15px;">
+                    NOVA PRISM ARCHITECTURE v1.0</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-chat">
+            <header class="chat-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-toggle" title="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="status-indicator" style="color: var(--accent-nova)">
+                        <i class="fas fa-microchip"
+                            style="color: var(--accent-nova); font-size: 0.9rem; animation: pulse 2s infinite;"></i>
+                        <span>xBot</span>
+                    </div>
+                </div>
+
+                <div class="audio-controls">
+                    <button id="pause-resume-btn" class="control-btn" title="Pause Stream">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button id="stop-btn" class="control-btn" title="Cease Process">
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                    <button id="settings-btn" class="control-btn" title="System Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="chat-window">
+                <!-- AI Welcome Message -->
+                <div class="message-wrap ai-wrap">
+                    <div class="message ai-msg">
+                        <span
+                            style="color: var(--accent-nova); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.2em;">[SYSTEM
+                            INITIALIZED]</span><br>
+                        Greetings. I am <strong>xBot</strong>. Currently running the <strong>Nova Prism</strong>
+                        cosmic interface. All systems are operating at peak efficiency. How may I assist your mission
+                        today?
+                    </div>
+                    <div class="msg-meta">
+                        <i class="fas fa-satellite"></i> PRISM CORE v1.0 • ONLINE
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <button id="voice-trigger" class="action-btn" title="Establish Voice Link">
+                        <i class="fas fa-microphone-lines"></i>
+                    </button>
+                    <input type="text" id="text-input" placeholder="Enter cosmic command..." autocomplete="off">
+                    <button id="send-btn" class="action-btn">
+                        <i class="fas fa-paper-plane" style="color: var(--accent-nova)"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Settings Sidebar -->
+        <aside id="settings-sidebar" class="settings-sidebar">
+            <header class="settings-header">
+                <h2><i class="fas fa-sliders-h"></i> System Settings</h2>
+                <button id="close-settings" class="close-btn"><i class="fas fa-times"></i></button>
+            </header>
+
+            <div class="settings-content">
+             <div class="setting-group">
+                    <label class="setting-label">Voice Synthesis Engine</label>
+                    <p class="setting-desc">Select the neural voice for system responses.</p>
+                    <div class="select-wrapper" style="position: relative">
+                        <select id="voice-select" class="prism-select">
+                            <!-- Voices will be loaded here -->
+                        </select>
+                        <i class="fas fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Language Protocol</label>
+                    <p class="setting-desc">System default language is locked to EN-US.</p>
+                    <div class="status-indicator-inline">
+                        <div class="dot" style="background: var(--accent-nova);"></div>
+                        <span>ENGLISH (UNITED STATES)</span>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="settings-footer">
+                <div class="system-tag">PRISM OS v1.0.4</div>
+            </footer>
+        </aside>
+    </div>
+
+    <!-- Voice Overlay (Emerald Theme) -->
+    <div id="voice-overlay">
+        <div class="visualizer">
+            <div class="v-bar" style="animation-delay: 0.0s"></div>
+            <div class="v-bar" style="animation-delay: 0.1s"></div>
+            <div class="v-bar" style="animation-delay: 0.2s"></div>
+            <div class="v-bar" style="animation-delay: 0.3s"></div>
+            <div class="v-bar" style="animation-delay: 0.4s"></div>
+            <div class="v-bar" style="animation-delay: 0.5s"></div>
+            <div class="v-bar" style="animation-delay: 0.4s"></div>
+            <div class="v-bar" style="animation-delay: 0.3s"></div>
+            <div class="v-bar" style="animation-delay: 0.2s"></div>
+            <div class="v-bar" style="animation-delay: 0.1s"></div>
+        </div>
+        <p class="voice-status">Analyzing Bio-Digital Waves...</p>
+        <p
+            style="margin-top: 20px; color: var(--accent-lime); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em;">
+            ODYSSEY CHANNEL ACTIVE</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+Topic: Remote Work Policy
+
+Question: Who is eligible for remote work?
+Answer: All full-time employees who have completed at least 6 months of service and whose performance is rated positively by their manager may request to work remotely. Special conditions may apply depending on the department.
+
+Question: What equipment is provided by the company for remote work?
+Answer: The company provides a standard set of equipment for remote staff, including a laptop, a monitor, a keyboard, and a mouse. The employee is responsible for the setup and security of this equipment.
+
+Question: Who covers the cost of internet for remote work?
+Answer: The employee is responsible for providing a secure, high-speed internet connection and covering all associated costs.
+
+Question: What are the security rules for remote work?
+Answer: All employees must use the company-provided VPN (Virtual Private Network) connection at all times when accessing the company network. Sensitive company data must not be stored on personal devices or personal cloud storage services.

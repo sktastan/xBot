@@ -1,0 +1,43 @@
+{
+  "doc1.txt": {
+    "modified": 1773078460.2733424,
+    "vectors": [
+      "doc1.txt_0",
+      "doc1.txt_1"
+    ],
+    "name": "doc1.txt"
+  },
+  "doc2.txt": {
+    "modified": 1759549907.1634974,
+    "vectors": [
+      "doc2.txt_0",
+      "doc2.txt_1",
+      "doc2.txt_2"
+    ],
+    "name": "doc2.txt"
+  },
+  "doc3.txt": {
+    "modified": 1772737367.1424105,
+    "vectors": [
+      "doc3.txt_0",
+      "doc3.txt_1",
+      "doc3.txt_2",
+      "doc3.txt_3",
+      "doc3.txt_4",
+      "doc3.txt_5",
+      "doc3.txt_6",
+      "doc3.txt_7",
+      "doc3.txt_8",
+      "doc3.txt_9",
+      "doc3.txt_10",
+      "doc3.txt_11",
+      "doc3.txt_12",
+      "doc3.txt_13",
+      "doc3.txt_14",
+      "doc3.txt_15",
+      "doc3.txt_16",
+      "doc3.txt_17"
+    ],
+    "name": "doc3.txt"
+  }
+}
