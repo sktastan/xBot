@@ -53,7 +53,7 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/xbot.git
+    git clone https://github.com/sktastan/xbot.git
     cd xbot10
     ```
 
