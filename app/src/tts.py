@@ -13,7 +13,9 @@ class TTS:
     def __init__(self):
         self.piper_voice = None
         # Default to joe as per previous user edit
-        self.model_path = os.path.abspath("tts-models/tts/eng/joe/en_US-joe-medium.onnx")
+        self.model_path = os.path.abspath("tts-models/tts/eng/joe/en_US-hfc_male-medium.onnx")
+        # self.model_path = os.path.abspath("piper-voices/en/en_US/joe/medium/en_US-joe-medium.onnx")
+        # self.model_path = os.path.abspath("tts-models/tts/eng/ryan/en_US-ryan-medium.onnx")
         self.config_path = self.model_path + ".json"
         self.enabled = True
 
@@ -34,10 +36,10 @@ class TTS:
     # -------------------------------------------------------------------
     async def setVoice(self, voice_name: str):
         """
-        Dynamically switch the Piper voice model by searching for the voice name in tts-models/tts.
+        Dynamically switch the Piper voice model by searching for the voice name in piper-voices/en/en_US.
         Example: setVoice("ryan")
         """
-        base_dir = os.path.abspath("tts-models/tts")
+        base_dir = os.path.abspath("piper-voices/en/en_US")
         found = False
         
         # Search recursively for the .onnx file matching the voice name
@@ -62,7 +64,7 @@ class TTS:
         """
         Returns a list of available voice names.
         """
-        base_dir = os.path.abspath("tts-models/tts")
+        base_dir = os.path.abspath("piper-voices/en/en_US")
         voices = []
         for root, dirs, files in os.walk(base_dir):
             for file in files:
