@@ -59,7 +59,7 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
 
 2.  **Install Python Dependencies**
     ```bash
-    pip install torch transformers flask faster-whisper chromadb sentence-transformers aiohttp beautifulsoup4 rich piper-tts
+    uv pip install torch transformers flask faster-whisper chromadb sentence-transformers aiohttp beautifulsoup4 rich piper-tts
     ```
     or
     setup.bat
