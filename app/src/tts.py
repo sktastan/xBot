@@ -13,8 +13,8 @@ class TTS:
     def __init__(self):
         self.piper_voice = None
         # Default to joe as per previous user edit
-        self.model_path = os.path.abspath("piper-voices/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx")
-        # self.model_path = os.path.abspath("piper-voices/en/en_US/joe/medium/en_US-joe-medium.onnx")
+        # self.model_path = os.path.abspath("piper-voices/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx")
+        self.model_path = os.path.abspath("piper-voices/en/en_US/joe/medium/en_US-joe-medium.onnx")
         self.config_path = self.model_path + ".json"
         self.enabled = True
 
@@ -33,7 +33,7 @@ class TTS:
     # ---------------------------------------------------------------------
     #   Switches the current voice model.
     # -------------------------------------------------------------------
-    async def setVoice(self, voice_name: str):
+    def setVoice(self, voice_name: str):
         """
         Dynamically switch the Piper voice model by searching for the voice name in piper-voices/en/en_US.
         Example: setVoice("ryan")
@@ -59,7 +59,7 @@ class TTS:
     # ---------------------------------------------------------------------
     #   Retrieves available voice names from the models directory.
     # -------------------------------------------------------------------
-    async def get_voices(self):
+    def get_voices(self):
         """
         Returns a list of available voice names.
         """
@@ -74,7 +74,7 @@ class TTS:
     # ---------------------------------------------------------------------
     #   Gets the currently active voice name.
     # -------------------------------------------------------------------
-    async def get_current_voice(self):
+    def get_current_voice(self):
         """
         Returns the current voice name.
         """
