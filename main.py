@@ -19,7 +19,7 @@ from app.src.misc import cuda_info, _sse_line, _make_stream, _stream_llm_tts
 # ---------------------------------------------------------------------
 #   Main Application Entry Point. Configures and starts the server.
 # -------------------------------------------------------------------
-async def main():
+def main():
     cuda_info()
 
     print("--- Initializing models ---")
@@ -64,14 +64,23 @@ async def main():
         if audio_file.filename == '':
             return jsonify({"error": "No selected file"}), 400
         
-        file_path = audio_file.filename
+        # Use a standardized filename to prevent path traversal/injection risks
+        file_path = "temp_recording.wav"
         audio_file.save(file_path)
         print(f"Audio file '{file_path}' saved.")
 
         conv_id = request.args.get('conv_id', type=int)
 
         print(f"\n--- Transcribing from: {file_path} ---")
-        text = sttModel.transcribe(file_path)
+        try:
+            text = sttModel.transcribe(file_path)
+        except RuntimeError as e:
+            if "cublas" in str(e) or "cudnn" in str(e):
+                error_msg = f"STT Engine Error: Missing CUDA/cuDNN libraries ({str(e)}). Please ensure NVIDIA CUDA 12 is installed and added to your system PATH."
+                print(f"[bold red]{error_msg}[/bold red]")
+                return jsonify({"error": error_msg}), 500
+            raise e
+            
         text = text.strip()
         print("Transcribed text: " + text)
 
@@ -233,7 +242,8 @@ async def main():
     server.run()
 
 if __name__ == "__main__":
+    print("--- .......... ---")
     try:
-        asyncio.run(main())
+        main()
     except KeyboardInterrupt:
         print("\n[bold yellow]Server shutting down gracefully.[/bold yellow]")
