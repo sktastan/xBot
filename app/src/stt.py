@@ -12,8 +12,14 @@ class STT:
         self.segments = None
         self.info = None
 
-        # Run on GPU with FP16
-        self.model = WhisperModel(model_size, device="cuda", compute_type="float16")
+        try:
+            # Attempt to run on GPU with FP16
+            self.model = WhisperModel(model_size, device="cuda", compute_type="float16")
+        except Exception as e:
+            print(f"STT: CUDA initialization failed ({e}). Falling back to CPU.")
+            # Fallback to CPU with int8 quantization for better performance on processors
+            self.model = WhisperModel(model_size, device="cpu", compute_type="int8")
+            
         self.enabled = True
 
     # ---------------------------------------------------------------------
