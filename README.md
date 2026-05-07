@@ -102,5 +102,4 @@ Unlike simple chatbots, XBot features a robust cognitive architecture comprising
 ## License
 MIT
 
----
-This project was developed in VS Code using Google Gemini Code Assistant (gemini-2.5-flash).
+## This project was developed in VS Code using Google Gemini Code Assistant (gemini-2.5-flash).
